@@ -1,0 +1,33 @@
+<mvc:View controllerName="com.hcc.bk5.BeKA.controller.participantList" xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<Table items="{/participantSet}" mode="SingleSelectMaster" selectionChange="onParticipantSelect">
+		<headerToolbar>
+			<Toolbar>
+				<Title text="LiV" level="H6"/>
+				<ToolbarSpacer/>
+				<Button tooltip="Löschen" icon="sap-icon://less"/>				
+				<Button tooltip="Anlegen" icon="sap-icon://add"/>
+			</Toolbar>
+		</headerToolbar>
+		<columns>
+			<Column mergeDuplicates="true"><Text text="Name"/></Column>
+			<Column mergeDuplicates="true"><Text text="Periode"/></Column>
+			<Column><Text text="Modul"/></Column>
+			<Column><Text text="Ausbilder"/></Column>
+			<Column><Text text="Ausbildungsort"/></Column>
+			<Column hAlign="Center" width="50px"><Text text="Status"/></Column>
+		</columns>
+		<items>
+			<ColumnListItem type="Detail">
+				<cells>
+					<ObjectIdentifier title="{name}" text="{key}"/>
+					<ObjectIdentifier title="{period}" text="{semester}"/>
+					<ObjectIdentifier title="{modul}" text="{subject}"/>
+					<Text text="{instructor}"/>
+					<Text text="{seminar}"/>
+					<core:Icon src="{statusIcon}"/>
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+</mvc:View>
