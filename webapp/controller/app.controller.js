@@ -5,26 +5,26 @@ sap.ui.define([
 	'sap/ui/model/json/JSONModel',
 	'sap/m/Popover',
 	'sap/m/Button'
-], function (jQuery, Fragment, Controller, JSONModel, Popover, Button) {
+], function(jQuery, Fragment, Controller, JSONModel, Popover, Button) {
 	"use strict";
 
 	return Controller.extend("com.hcc.bk5.BeKA.controller.app", {
 
-		onInit : function() {
-			this._setToggleButtonTooltip(!sap.ui.Device.system.desktop); 
+		onInit: function() {
+			this._setToggleButtonTooltip(!sap.ui.Device.system.desktop);
 		},
 
-		onItemSelect : function(oEvent) {
+		onItemSelect: function(oEvent) {
 			var item = oEvent.getParameter('item');
 			var viewId = this.getView().getId();
 			sap.ui.getCore().byId(viewId + "--pageContainer").to(viewId + "--" + item.getKey());
 		},
 
-		handlePlanningPress: function (event) {
+		handlePlanningPress: function(event) {
 			var popover = new Popover({
 				showHeader: false,
 				placement: sap.m.PlacementType.Bottom,
-				content:[
+				content: [
 					new Button({
 						text: 'Wizzard',
 						type: sap.m.ButtonType.Transparent,
@@ -41,11 +41,11 @@ sap.ui.define([
 			popover.openBy(event.getSource());
 		},
 
-		handleVersionsPress: function (event) {
+		handleVersionsPress: function(event) {
 			var popover = new Popover({
 				showHeader: false,
 				placement: sap.m.PlacementType.Bottom,
-				content:[
+				content: [
 					new Button({
 						text: 'Version anlegen',
 						type: sap.m.ButtonType.Transparent,
@@ -60,13 +60,13 @@ sap.ui.define([
 			}).addStyleClass('sapMOTAPopover sapTntToolHeaderPopover');
 
 			popover.openBy(event.getSource());
-		},		
+		},
 
-		handleViewPress: function (event) {
+		handleViewPress: function(event) {
 			var popover = new Popover({
 				showHeader: false,
 				placement: sap.m.PlacementType.Bottom,
-				content:[
+				content: [
 					new Button({
 						text: 'Teilnehmer',
 						type: sap.m.ButtonType.Transparent,
@@ -86,13 +86,13 @@ sap.ui.define([
 			}).addStyleClass('sapMOTAPopover sapTntToolHeaderPopover');
 
 			popover.openBy(event.getSource());
-		},		
+		},
 
-		handleReportingPress: function (event) {
+		handleReportingPress: function(event) {
 			var popover = new Popover({
 				showHeader: false,
 				placement: sap.m.PlacementType.Bottom,
-				content:[
+				content: [
 					new Button({
 						text: 'Kapazitätsplanung',
 						type: sap.m.ButtonType.Transparent,
@@ -108,12 +108,12 @@ sap.ui.define([
 
 			popover.openBy(event.getSource());
 		},
-		
-		handleUserNamePress: function (event) {
+
+		handleUserNamePress: function(event) {
 			var popover = new Popover({
 				showHeader: false,
 				placement: sap.m.PlacementType.Bottom,
-				content:[
+				content: [
 					new Button({
 						text: 'Feedback',
 						type: sap.m.ButtonType.Transparent
@@ -132,7 +132,7 @@ sap.ui.define([
 			popover.openBy(event.getSource());
 		},
 
-		onSideNavButtonPress : function() {
+		onSideNavButtonPress: function() {
 			var viewId = this.getView().getId();
 			var toolPage = sap.ui.getCore().byId(viewId + "--toolPage");
 			var sideExpanded = toolPage.getSideExpanded();
@@ -142,13 +142,13 @@ sap.ui.define([
 			toolPage.setSideExpanded(!toolPage.getSideExpanded());
 		},
 
-		_setToggleButtonTooltip : function(bLarge) {
-			var toggleButton = this.byId('sideNavigationToggleButton');
-			if (bLarge) {
-				toggleButton.setTooltip('Large Size Navigation');
-			} else {
-				toggleButton.setTooltip('Small Size Navigation');
-			}
+		_setToggleButtonTooltip: function(bExpanded) {
+			var sMsg;
+			var btnSideNav = this.byId('tp01.th.btnSideNav');
+
+			if (bExpanded) {} else {}
+			
+			btnSideNav.setTooltip(sMsg);
 		}
 
 	});
